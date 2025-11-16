@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 
 import userApi from "./routes/userApi.js";
+import premApi from "./routes/premApi.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api", userApi);
+app.use("/api/prem", premApi);
 
 const mongoUri: string | undefined = process.env.MONGO_URI;
 if (!mongoUri) {
